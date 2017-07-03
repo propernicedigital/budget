@@ -9,9 +9,10 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AuthGuardLogin } from './services/auth-guard-login.service';
-import { AuthGuardAdmin } from './services/auth-guard-admin.service';
+import { AuthGuardAdmin } from './services/auth-guard-admin.service'; 
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
   { path: 'notfound', component: NotFoundComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardLogin] },
   { path: '**', redirectTo: '/notfound' },
 ];
 
@@ -31,3 +33,4 @@ const routes: Routes = [
 })
 
 export class RoutingModule {}
+ 
